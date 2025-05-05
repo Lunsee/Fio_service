@@ -1,0 +1,98 @@
+package test
+
+import (
+	"time"
+
+	"fio_service/internal/models"
+)
+
+var TestPersons = []models.Persons{
+	{
+		ID:         1,
+		Name:       "Иван",
+		Surname:    "Иванов",
+		Patronymic: "Иванович",
+		Age:        30,
+		Gender:     "male",
+		Ethnicity:  "russian",
+		CreatedAt:  time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 5, 10, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         2,
+		Name:       "Мария",
+		Surname:    "Петрова",
+		Patronymic: "Сергеевна",
+		Age:        25,
+		Gender:     "female",
+		Ethnicity:  "russian",
+		CreatedAt:  time.Date(2019, 6, 15, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 4, 20, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         3,
+		Name:       "John",
+		Surname:    "Doe",
+		Patronymic: "",
+		Age:        40,
+		Gender:     "male",
+		Ethnicity:  "american",
+		CreatedAt:  time.Date(2018, 3, 10, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 1, 5, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         4,
+		Name:       "Алексей",
+		Surname:    "Сидоров",
+		Patronymic: "Викторович",
+		Age:        35,
+		Gender:     "male",
+		Ethnicity:  "russian",
+		CreatedAt:  time.Date(2021, 11, 20, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 3, 15, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         5,
+		Name:       "Emma",
+		Surname:    "Smith",
+		Patronymic: "",
+		Age:        28,
+		Gender:     "female",
+		Ethnicity:  "british",
+		CreatedAt:  time.Date(2020, 7, 5, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 2, 28, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         6,
+		Name:       "Chen",
+		Surname:    "Li",
+		Patronymic: "",
+		Age:        45,
+		Gender:     "male",
+		Ethnicity:  "chinese",
+		CreatedAt:  time.Date(2017, 9, 12, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 6, 1, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         7,
+		Name:       "Anna",
+		Surname:    "Müller",
+		Patronymic: "",
+		Age:        32,
+		Gender:     "female",
+		Ethnicity:  "german",
+		CreatedAt:  time.Date(2019, 4, 18, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 5, 22, 0, 0, 0, 0, time.UTC),
+	},
+	{
+		ID:         8,
+		Name:       "Jean",
+		Surname:    "Dupont",
+		Patronymic: "",
+		Age:        50,
+		Gender:     "male",
+		Ethnicity:  "french",
+		CreatedAt:  time.Date(2016, 5, 30, 0, 0, 0, 0, time.UTC),
+		UpdatedAt:  time.Date(2023, 4, 10, 0, 0, 0, 0, time.UTC),
+	},
+}

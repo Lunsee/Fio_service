@@ -1,0 +1,184 @@
+definitions:
+  models.Persons:
+    properties:
+      age:
+        type: integer
+      createdAt:
+        type: string
+      ethnicity:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      patronymic:
+        type: string
+      surname:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  routes.PersonRequest:
+    properties:
+      name:
+        type: string
+      patronymic:
+        type: string
+      surname:
+        type: string
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: 'Test task : This is a simple FIO API to manage Persons'
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: http://swagger.io/terms/
+  title: FIO API
+  version: "1.0"
+paths:
+  /persons:
+    get:
+      description: Get a list of people with optional query parameters such as page,
+        limit, name, surname, age, gender, ethnicity
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Limit number
+        in: query
+        name: limit
+        type: integer
+      - description: Filter by name
+        in: query
+        name: name
+        type: string
+      - description: Filter by surname
+        in: query
+        name: surname
+        type: string
+      - description: Filter by age
+        in: query
+        name: age
+        type: integer
+      - description: Filter by gender
+        in: query
+        name: gender
+        type: string
+      - description: Filter by ethnicity
+        in: query
+        name: ethnicity
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of people
+          schema:
+            items:
+              $ref: '#/definitions/models.Persons'
+            type: array
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Database error
+          schema:
+            type: string
+      summary: Get a list of people
+    post:
+      consumes:
+      - application/json
+      description: Add a new person with name, surname, patronymic, age, gender, and
+        ethnicity
+      parameters:
+      - description: Person Details
+        in: body
+        name: person
+        required: true
+        schema:
+          $ref: '#/definitions/routes.PersonRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created person
+          schema:
+            $ref: '#/definitions/models.Persons'
+        "400":
+          description: Invalid JSON or Missing Fields
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Create a new person
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing person
+      parameters:
+      - description: Updated Person Details
+        in: body
+        name: person
+        required: true
+        schema:
+          $ref: '#/definitions/models.Persons'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated person
+          schema:
+            $ref: '#/definitions/models.Persons'
+        "400":
+          description: Invalid JSON
+          schema:
+            type: string
+        "404":
+          description: Person not found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Edit a person's details
+  /persons/{id}:
+    delete:
+      description: Delete a person using their ID
+      parameters:
+      - description: Person ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "202":
+          description: Deleted person
+          schema:
+            $ref: '#/definitions/models.Persons'
+        "400":
+          description: Invalid ID
+          schema:
+            type: string
+        "404":
+          description: Person not found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete a person by ID
+swagger: "2.0"
